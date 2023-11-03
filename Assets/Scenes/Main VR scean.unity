@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 624876331}
   - component: {fileID: 624876330}
   - component: {fileID: 624876334}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Interactable Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

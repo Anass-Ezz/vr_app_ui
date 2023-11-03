@@ -16,6 +16,7 @@ public class EventsHandeler : MonoBehaviour
         XR_intr_script.GetType().GetProperty("enabled").SetValue(XR_intr_script, false, null);
         rb.useGravity = false;
         rb.isKinematic = true;
+        duplicatedObject.layer = LayerMask.NameToLayer("Gaze");
         camera.cullingMask = newLayerMask;
     }
     // Start is called before the first frame update
