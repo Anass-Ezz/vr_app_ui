@@ -18,6 +18,7 @@ public class EventsHandeler : MonoBehaviour
         rb.isKinematic = true;
         duplicatedObject.layer = LayerMask.NameToLayer("Gaze");
         camera.cullingMask = newLayerMask;
+        //dskdjk
     }
     // Start is called before the first frame update
     void Start()
