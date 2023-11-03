@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 624876331}
   - component: {fileID: 624876330}
   - component: {fileID: 624876334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Interactable Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3627,8 +3627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newLayerMask:
     serializedVersion: 2
-    m_Bits: 32
-  camera: {fileID: 1250035586}
+    m_Bits: 8
+  camera: {fileID: 1250035591}
 --- !u!4 &1204018980
 Transform:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EventsHandeler : MonoBehaviour
 {
     public LayerMask newLayerMask;
-    [SerializeField] private GameObject camera;
+    [SerializeField] private Camera camera;
     public void Gaze(GameObject gameObject){
         
         Vector3 camera_position = camera.transform.position;
@@ -16,7 +16,7 @@ public class EventsHandeler : MonoBehaviour
         XR_intr_script.GetType().GetProperty("enabled").SetValue(XR_intr_script, false, null);
         rb.useGravity = false;
         rb.isKinematic = true;
-        Camera cam = duplicatedObject.GetComponent<Camera>();
+        camera.cullingMask = newLayerMask;
     }
     // Start is called before the first frame update
     void Start()
