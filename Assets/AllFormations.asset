@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee30405d23d37414b9a7bec1baf133ed, type: 3}
+  m_Name: AllFormations
+  m_EditorClassIdentifier: 
+  formationList:
+  - name: TIUF
+    description: "Le Master TIUF (Technologies Industrielle pour l\u2019Usine du
+      Futur) se caract\xE9rise par un ancrage tr\xE8s fort dans la probl\xE9matique
+      de digitalisation et de d\xE9veloppement des concepts de l\u2019usine du futur
+      que visent la plupart des industriels. La d\xE9finition du programme a \xE9t\xE9
+      \xE9labor\xE9e suite \xE0 une analyse d\xE9taill\xE9e des comp\xE9tences les
+      plus recherch\xE9es dans les diff\xE9rents domaines de l\u2019industrie. Le
+      Master vise \xE0 former les \xE9tudiants \xE0 la ma\xEEtrise des infrastructures
+      techniques int\xE9grant les technologies industrielles avanc\xE9es telles que
+      les objets connect\xE9s, les capteurs intelligents, l\u2019automatisation,
+      la robotisation, les r\xE9seaux industriels et les syst\xE8mes de pilotage
+      intelligents. La formation consacre une part importante \xE0 des activit\xE9s
+      d\u2019exp\xE9rimentation et de d\xE9veloppement sur des plateformes techniques
+      tr\xE8s avanc\xE9es reproduisant d\u2019une mani\xE8re r\xE9aliste diff\xE9rents
+      contextes industriels."
+    color: {r: 0.33333334, g: 0.10980392, b: 0.50980395, a: 1}
+    img: {fileID: 21300000, guid: c4a972bcf38c3a34c8e48aa35ad26909, type: 3}
+  - name: RESMA
+    description: " En appui \xE0 la strat\xE9gie d\u2019efficacit\xE9 et de renouvellement
+      de ses ressources \xE9nerg\xE9tiques du Maroc et en partenariat avec le Green
+      Energy Park, le Master RESMA vise l\u2019acquisition des connaissances essentielles
+      en ing\xE9nierie \xE9lectrique, \xE9nergies renouvelables, r\xE9seaux intelligents
+      (Smart Grids) et conduite de projets techniques.  Les sujets abord\xE9s portent
+      essentiellement sur la modernisation des r\xE9seaux \xE9lectriques existants,
+      le d\xE9ploiement des \xE9nergies renouvelables, l\u2019optimisation de la
+      production d\xE9centralis\xE9e, la s\xE9curit\xE9 d\u2019approvisionnement
+      \xE9nerg\xE9tique et la limitation du r\xE9chauffement climatique. Ce master
+      comporte une part importante d\u2019exp\xE9rimentations sur des plateformes
+      techniques avanc\xE9es reproduisant diff\xE9rents contextes industriels marocains,
+      voire africains..."
+    color: {r: 0.17254902, g: 0.5882353, b: 0.6156863, a: 1}
+    img: {fileID: 21300000, guid: 23a0d822f9076fd4ca5c6d9825f24e1f, type: 3}
+  - name: OID
+    description: "La licence professionnelle Op\xE9rations Industrielles et Digitalisation
+      (OID) a pour objectif de former de vrais managers et cadres interm\xE9diaires
+      de l\u2019\xE9volution technologique et digital ayant un niveau d\u2019expertise
+      multidisciplinaire. Vous serez en mesure d\u2019intervenir au sein d\u2019un
+      projet traitant de l\u2019automatisme, l\u2019informatique, la m\xE9canique,
+      l\u2019a\xE9ronautique, la maintenance, le pneumatique, l\u2019hydraulique,
+      la qualit\xE9 et la s\xE9curit\xE9, \xE0 des fins de r\xE9alisation et d\u2019encadrement
+      technique."
+    color: {r: 0.29803923, g: 0.30980393, b: 0.42745098, a: 1}
+    img: {fileID: 21300000, guid: 4821e0d50a0fcd9498b70234665417f8, type: 3}
+  - name: GPID
+    description: " La licence professionnelle G\xE9nie des Proc\xE9d\xE9s Industriels
+      et Digitalisation (GPID) a pour objectif de former des experts multidisciplinaires
+      qui seront en mesure d\u2019int\xE9grer les m\xE9tiers du G\xE9nie des Proc\xE9d\xE9s
+      et Digitalisation, du G\xE9nie Chimique, du Management de la Qualit\xE9 et
+      la S\xE9curit\xE9, de l\u2019Hydraulique, de la Mod\xE9lisation & Simulation
+      des proc\xE9d\xE9s industriels. Elle propose une formation avanc\xE9e autour
+      de la conduite et le contr\xF4le des processus de fabrication ou transformation
+      de la mati\xE8re, les modalit\xE9s d\u2019int\xE9gration des outils technologiques
+      et manag\xE9riaux pour l\u2019am\xE9lioration continue."
+    color: {r: 0.17254902, g: 0.40392157, b: 0.6156863, a: 1}
+    img: {fileID: 21300000, guid: 28e4a4b18565348408e64aa285ec0188, type: 3}
