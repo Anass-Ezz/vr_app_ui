@@ -8,6 +8,7 @@ public class FormationItem {
     public string description;
     public Color color;
     public Sprite img;
+    public AudioClip audio;
 }
 
 [CreateAssetMenu(fileName = "Object", menuName = "ScriptableObjects/Create New Formation")]

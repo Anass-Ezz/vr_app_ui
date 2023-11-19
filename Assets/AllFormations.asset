@@ -14,48 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   formationList:
   - name: TIUF
-    description: "Le Master TIUF (Technologies Industrielle pour l\u2019Usine du
-      Futur) se caract\xE9rise par un ancrage tr\xE8s fort dans la probl\xE9matique
-      de digitalisation et de d\xE9veloppement des concepts de l\u2019usine du futur
-      que visent la plupart des industriels. La d\xE9finition du programme a \xE9t\xE9
-      \xE9labor\xE9e suite \xE0 une analyse d\xE9taill\xE9e des comp\xE9tences les
-      plus recherch\xE9es dans les diff\xE9rents domaines de l\u2019industrie. Le
-      Master vise \xE0 former les \xE9tudiants \xE0 la ma\xEEtrise des infrastructures
-      techniques int\xE9grant les technologies industrielles avanc\xE9es telles que
-      les objets connect\xE9s, les capteurs intelligents, l\u2019automatisation,
-      la robotisation, les r\xE9seaux industriels et les syst\xE8mes de pilotage
-      intelligents. La formation consacre une part importante \xE0 des activit\xE9s
-      d\u2019exp\xE9rimentation et de d\xE9veloppement sur des plateformes techniques
-      tr\xE8s avanc\xE9es reproduisant d\u2019une mani\xE8re r\xE9aliste diff\xE9rents
-      contextes industriels."
-    color: {r: 0.33333334, g: 0.10980392, b: 0.50980395, a: 1}
+    description: The Master's program in Industrial Technologies for the Factory
+      of the Future (TIUF) is characterized by a strong focus on the issues of digitization
+      and the development of concepts for the factory of the future, which are the
+      objectives of most industrial players. The program's definition was developed
+      following a detailed analysis of the most sought-after skills in various industrial
+      domains. The Master aims to train students in mastering technical infrastructures
+      that integrate advanced industrial technologies such as connected objects,
+      smart sensors, automation, robotics, industrial networks, and intelligent control
+      systems. The training dedicates a significant portion to experimentation and
+      development activities on highly advanced technical platforms that realistically
+      replicate various industrial contexts.
+    color: {r: 0.39607844, g: 0.17254902, b: 0.6156863, a: 1}
     img: {fileID: 21300000, guid: c4a972bcf38c3a34c8e48aa35ad26909, type: 3}
+    audio: {fileID: 8300000, guid: 5f41b8a95133e984bb700e9579e1b3e0, type: 3}
   - name: RESMA
-    description: " En appui \xE0 la strat\xE9gie d\u2019efficacit\xE9 et de renouvellement
-      de ses ressources \xE9nerg\xE9tiques du Maroc et en partenariat avec le Green
-      Energy Park, le Master RESMA vise l\u2019acquisition des connaissances essentielles
-      en ing\xE9nierie \xE9lectrique, \xE9nergies renouvelables, r\xE9seaux intelligents
-      (Smart Grids) et conduite de projets techniques.  Les sujets abord\xE9s portent
-      essentiellement sur la modernisation des r\xE9seaux \xE9lectriques existants,
-      le d\xE9ploiement des \xE9nergies renouvelables, l\u2019optimisation de la
-      production d\xE9centralis\xE9e, la s\xE9curit\xE9 d\u2019approvisionnement
-      \xE9nerg\xE9tique et la limitation du r\xE9chauffement climatique. Ce master
-      comporte une part importante d\u2019exp\xE9rimentations sur des plateformes
-      techniques avanc\xE9es reproduisant diff\xE9rents contextes industriels marocains,
-      voire africains..."
-    color: {r: 0.17254902, g: 0.5882353, b: 0.6156863, a: 1}
+    description: In support of Morocco's strategy for efficiency and the renewal
+      of its energy resources, and in partnership with the Green Energy Park, the
+      RESMA Master's program aims to acquire essential knowledge in electrical engineering,
+      renewable energies, smart grids, and technical project management. The topics
+      covered primarily focus on the modernization of existing electrical networks,
+      the deployment of renewable energies, the optimization of decentralized production,
+      energy supply security, and the mitigation of climate change. This master's
+      program includes a significant portion of experimentation on advanced technical
+      platforms replicating various Moroccan and even African industrial contexts.
+    color: {r: 0.16862746, g: 0.34509805, b: 0.21960784, a: 1}
     img: {fileID: 21300000, guid: 23a0d822f9076fd4ca5c6d9825f24e1f, type: 3}
+    audio: {fileID: 8300000, guid: 17e2dce11b30151499fbc950616b6448, type: 3}
   - name: OID
-    description: "La licence professionnelle Op\xE9rations Industrielles et Digitalisation
-      (OID) a pour objectif de former de vrais managers et cadres interm\xE9diaires
-      de l\u2019\xE9volution technologique et digital ayant un niveau d\u2019expertise
-      multidisciplinaire. Vous serez en mesure d\u2019intervenir au sein d\u2019un
-      projet traitant de l\u2019automatisme, l\u2019informatique, la m\xE9canique,
-      l\u2019a\xE9ronautique, la maintenance, le pneumatique, l\u2019hydraulique,
-      la qualit\xE9 et la s\xE9curit\xE9, \xE0 des fins de r\xE9alisation et d\u2019encadrement
-      technique."
-    color: {r: 0.29803923, g: 0.30980393, b: 0.42745098, a: 1}
+    description: The professional bachelor's degree in Industrial Operations and
+      Digitalization (OID) aims to train real managers and middle-level executives
+      in technological and digital evolution with a multidisciplinary expertise.
+      You will be able to contribute to projects dealing with automation, information
+      technology, mechanics, aeronautics, maintenance, pneumatics, hydraulics, quality,
+      and safety, for the purpose of implementation and technical supervision.
+    color: {r: 0.14901961, g: 0.1254902, b: 0.1764706, a: 1}
     img: {fileID: 21300000, guid: 4821e0d50a0fcd9498b70234665417f8, type: 3}
+    audio: {fileID: 8300000, guid: ad7e74594a1359749aa2cc8a6698ee6b, type: 3}
   - name: GPID
     description: " La licence professionnelle G\xE9nie des Proc\xE9d\xE9s Industriels
       et Digitalisation (GPID) a pour objectif de former des experts multidisciplinaires
@@ -66,5 +61,6 @@ MonoBehaviour:
       de la conduite et le contr\xF4le des processus de fabrication ou transformation
       de la mati\xE8re, les modalit\xE9s d\u2019int\xE9gration des outils technologiques
       et manag\xE9riaux pour l\u2019am\xE9lioration continue."
-    color: {r: 0.17254902, g: 0.40392157, b: 0.6156863, a: 1}
+    color: {r: 0.09019608, g: 0.14117648, b: 0.21568628, a: 1}
     img: {fileID: 21300000, guid: 28e4a4b18565348408e64aa285ec0188, type: 3}
+    audio: {fileID: 8300000, guid: 5f42360fe685ec14885c8f6e09f4272a, type: 3}
