@@ -13,9 +13,11 @@ public class FormationEvents : MonoBehaviour
     [SerializeField] private GameObject FormationHome;
     [SerializeField] private List<GameObject> FormationList = new List<GameObject>();
     [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip HoverSFX;
     private List<GameObject> FormationInstList = new List<GameObject>();
 
     public void FormationHoverEntered(GameObject gameObject){
+        source.PlayOneShot(HoverSFX);
         Vector3 current = gameObject.transform.position;
         gameObject.transform.position = new Vector3(current[0], current[1], current[2] - 0.1f);
         Transform child = gameObject.transform.GetChild(0);

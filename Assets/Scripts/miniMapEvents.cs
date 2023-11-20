@@ -18,6 +18,9 @@ public class miniMapEvents : MonoBehaviour
     [SerializeField] private TMP_Text FloorText;
     [SerializeField] private GameObject TeleportationPoints;
     [SerializeField] private GameObject Character;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip MiniMapExpandSFX;
+    [SerializeField] private AudioClip HoverSFX;
     private bool work = false;
     private GameObject SelectedBlock;
     private int selectedFloor = 0;
@@ -30,7 +33,7 @@ public class miniMapEvents : MonoBehaviour
     }
     public void expandBlock(GameObject block){
         if(work && SelectedBlock == null){
-            Debug.Log(block.name);
+            source.PlayOneShot(HoverSFX);
             SelectedBlock = block;
             block.transform.Translate(new Vector3(0f, 0.01f, 0f));
             Transform SecondFloor = block.transform.GetChild(1);
@@ -53,14 +56,13 @@ public class miniMapEvents : MonoBehaviour
     }
     void ExpandMiniMap(){
         if(!miniMapExpanded){
-            //%%%%%%%%%%%%%%%%%%%%
+            source.PlayOneShot(MiniMapExpandSFX);
             GameObject[] NoRayCastObj = GameObject.FindGameObjectsWithTag("MiniMapNoRayCast");
             foreach (GameObject obj in NoRayCastObj)
             {
                 Component RayInterScript = obj.GetComponent("XRSimpleInteractable");
                 RayInterScript.GetType().GetProperty("enabled").SetValue(RayInterScript, true, null); 
             }
-            //%%%%%%%%%%%%%%%%%%%%
             miniMap.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
             miniMapExpanded = true;
         }
@@ -68,14 +70,12 @@ public class miniMapEvents : MonoBehaviour
     }
     void ColapsMiniMap(){
         if(miniMapExpanded){
-            //%%%%%%%%%%%%%%%%%%%%
             GameObject[] NoRayCastObj = GameObject.FindGameObjectsWithTag("MiniMapNoRayCast");
             foreach (GameObject obj in NoRayCastObj)
             {
                 Component RayInterScript = obj.GetComponent("XRSimpleInteractable");
                 RayInterScript.GetType().GetProperty("enabled").SetValue(RayInterScript, false, null); 
             }
-            //%%%%%%%%%%%%%%%%%%%%
             miniMap.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             miniMapExpanded = false;
         }
@@ -88,7 +88,6 @@ public class miniMapEvents : MonoBehaviour
             FloorText.text = "Floor 1";
             foreach(GameObject floor in ListOfFloor1){
                 Renderer rend = floor.GetComponent<Renderer>();
-                // Debug.Log(rend.materials[0]);
                 Material[] materialsArray = new Material[] { OrangeMaterial, RoofMaterial };
                 rend.materials = materialsArray;
             }
@@ -104,7 +103,6 @@ public class miniMapEvents : MonoBehaviour
             FloorText.text = "Floor 0";
             foreach(GameObject floor in ListOfFloor0){
                 Renderer rend = floor.GetComponent<Renderer>();
-                // Debug.Log(rend.materials[0]);
                 rend.material = OrangeMaterial;
             }
             foreach(GameObject floor in ListOfFloor1){
