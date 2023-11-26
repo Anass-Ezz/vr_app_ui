@@ -35,17 +35,7 @@ public class FormationEvents : MonoBehaviour
     }
     public void FormationClicked(int id){
         SelectedFormationId = id;
-        for(int i = 0 ; i<FormationInstList.Count ; i++){
-            Destroy(FormationList[i]);
-        }
-        FormationList.Clear();
-        foreach(GameObject form in FormationInstList){
-            GameObject instObject = Instantiate(form, FormationHome.transform);
-            instObject.SetActive(true);
-            FormationList.Add(instObject);
-        }
-
-
+        
         FormationItem formation = formationScriptable.formationList[id];
         FormationDetails.SetActive(true);
         FormationHome.SetActive(false);
@@ -61,6 +51,15 @@ public class FormationEvents : MonoBehaviour
 
     }
     public void BackHome(){
+        for(int i = 0 ; i<FormationInstList.Count ; i++){
+            Destroy(FormationList[i]);
+        }
+        FormationList.Clear();
+        foreach(GameObject form in FormationInstList){
+            GameObject instObject = Instantiate(form, FormationHome.transform);
+            instObject.SetActive(true);
+            FormationList.Add(instObject);
+        }
         StopReading();
         FormationDetails.SetActive(false);
         FormationHome.SetActive(true);
