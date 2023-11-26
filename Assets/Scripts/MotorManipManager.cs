@@ -55,7 +55,7 @@ public class MotorManipManager : MonoBehaviour
     }
     void Start()
     {
-        InitSteps();
+        //InitSteps();
     }
 
     void Update()

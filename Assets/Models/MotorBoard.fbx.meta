@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 4da81a2277f64bf4a949385187c6bc2c
+guid: cb839b5999875df45ae7125ce1fd79c4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Untitled-1
-    second: {fileID: 2800000, guid: 5d29df25ed7a30f498f0a2bf57cc94c1, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: motor board
-    second: {fileID: 2800000, guid: 9c2fd5ddba744354587b3f7d2ab4e33d, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
