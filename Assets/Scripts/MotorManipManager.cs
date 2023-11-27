@@ -17,8 +17,10 @@ public class MotorManipSteps {
     public bool status;
 }
 
+
 public class MotorManipManager : MonoBehaviour
 {
+
     [SerializeField] private AudioSource source;
     [SerializeField] private List<MotorManipSteps> Steps = new List<MotorManipSteps>();
     // [SerializeField] private List<GameObject> DisassembledMotor = new List<GameObject>();
@@ -55,11 +57,13 @@ public class MotorManipManager : MonoBehaviour
     }
     void Start()
     {
-        //InitSteps();
+        InitSteps();
+        
     }
 
     void Update()
     {
+        //Debug.Log((!L1 || L3) && (L1 || !L2)  && (L2 || !L3));
         
     }
 }
