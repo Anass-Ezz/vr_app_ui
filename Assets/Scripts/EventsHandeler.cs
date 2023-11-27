@@ -7,12 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-[System.Serializable]
-public class GazedObjectData
-{
-    public string name;
-    public string description;
-}
+
 public class EventsHandeler : MonoBehaviour
 {
 

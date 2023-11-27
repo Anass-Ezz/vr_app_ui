@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main VR scean.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Motor Manip Scean.unity
+    guid: 01ca724a7cd565943b704a5652f1cae2
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 65a9c9d1d09181342be6ec336385c492,
       type: 2}
