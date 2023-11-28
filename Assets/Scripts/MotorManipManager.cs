@@ -16,14 +16,33 @@ public class MotorManipSteps {
     public GameObject socketObject;
     public bool status;
 }
+[System.Serializable]
+public class PowerStates{
+    public GameObject socket;
+    public bool connected;
 
+    public PowerStates(){
+        this.socket = null;
+        this.connected = false;
+    }
+}
 
 public class MotorManipManager : MonoBehaviour
 {
 
     [SerializeField] private AudioSource source;
     [SerializeField] private List<MotorManipSteps> Steps = new List<MotorManipSteps>();
-    // [SerializeField] private List<GameObject> DisassembledMotor = new List<GameObject>();
+    [SerializeField] private GameObject Rotor;
+    [SerializeField] private GameObject socketL1;
+    [SerializeField] private GameObject socketL2;
+    [SerializeField] private GameObject socketL3;
+
+    private HandlePowerSocketCollision scriptL1;
+    private HandlePowerSocketCollision scriptL2;
+    private HandlePowerSocketCollision scriptL3;
+
+    private bool direction;
+
 
     public void ValidStep(int stepId){
         MotorManipSteps currentStep = Steps[stepId];
@@ -35,7 +54,7 @@ public class MotorManipManager : MonoBehaviour
             MotorManipSteps nextStep = Steps[stepId+1];
             Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
             XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
-            source.PlayOneShot(Steps[stepId+1].stepAudio);
+            // source.PlayOneShot(Steps[stepId+1].stepAudio);
         }
         else{
             Debug.Log("Congratulations");
@@ -53,17 +72,34 @@ public class MotorManipManager : MonoBehaviour
         }
         XR_grab_Script = Steps[0].stepObject.GetComponent("XRGrabInteractable");
         XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null); 
-        source.PlayOneShot(Steps[0].stepAudio);
+        // source.PlayOneShot(Steps[0].stepAudio);
     }
+
+   
+
     void Start()
     {
         InitSteps();
-        
+        scriptL1 = socketL1.GetComponent<HandlePowerSocketCollision>();
+        scriptL2 = socketL2.GetComponent<HandlePowerSocketCollision>();
+        scriptL3 = socketL3.GetComponent<HandlePowerSocketCollision>();
+        RotateMotor(Vector3.forward);
     }
-
+    void RotateMotor(Vector3 rotationDirection)
+    {
+        Rotor.transform.Rotate(rotationDirection * 100f * Time.deltaTime);
+    }
     void Update()
     {
-        //Debug.Log((!L1 || L3) && (L1 || !L2)  && (L2 || !L3));
-        
+        // RotateMotor(Vector3.forward);
+        // if(Steps[Steps.Count - 1].status){
+        if(true){
+            if (scriptL1.isConnected && scriptL2.isConnected && scriptL3.isConnected){
+
+                direction = (!scriptL1.isSameTerminal || scriptL3.isSameTerminal) && (scriptL1.isSameTerminal || !scriptL2.isSameTerminal)  && (scriptL2.isSameTerminal || !scriptL3.isSameTerminal);
+                Debug.Log("Run " + direction);
+                RotateMotor((direction) ? Vector3.forward : Vector3.back);
+            }
+        }
     }
 }

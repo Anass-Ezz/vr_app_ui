@@ -6,6 +6,9 @@ TagManager:
   tags:
   - SelectedFloor
   - MiniMapNoRayCast
+  - L1
+  - L2
+  - L3
   layers:
   - Default
   - TransparentFX
