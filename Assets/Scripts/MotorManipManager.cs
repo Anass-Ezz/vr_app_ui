@@ -14,17 +14,8 @@ public class MotorManipSteps {
     public GameObject stepObject;
     public GameObject originalObject;
     public GameObject socketObject;
+    public GameObject clipBoardStep;
     public bool status;
-}
-[System.Serializable]
-public class PowerStates{
-    public GameObject socket;
-    public bool connected;
-
-    public PowerStates(){
-        this.socket = null;
-        this.connected = false;
-    }
 }
 
 public class MotorManipManager : MonoBehaviour
@@ -43,40 +34,74 @@ public class MotorManipManager : MonoBehaviour
 
     private bool direction;
 
+    private MotorManipSteps nextStep;
+    [SerializeField] private AudioClip finishigAudio;
 
     public void ValidStep(int stepId){
         MotorManipSteps currentStep = Steps[stepId];
         currentStep.status = true;
-        currentStep.originalObject.SetActive(true);
-        Destroy(currentStep.stepObject);
-        Destroy(currentStep.socketObject);
+        if (currentStep.clipBoardStep != null){
+            currentStep.clipBoardStep.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if (currentStep.originalObject != null){
+            currentStep.originalObject.SetActive(true);
+        }
+        if (currentStep.stepObject != null){
+            Destroy(currentStep.stepObject);
+        }
+        if (currentStep.socketObject != null){
+            Destroy(currentStep.socketObject);
+        }
         if(stepId < Steps.Count-1){
-            MotorManipSteps nextStep = Steps[stepId+1];
-            Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
-            XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
-            // source.PlayOneShot(Steps[stepId+1].stepAudio);
+            source.PlayOneShot(Steps[stepId+1].stepAudio);
+            nextStep = Steps[stepId+1];
+            if (nextStep.stepObject != null){
+                StartCoroutine(WaitAndContinue(nextStep));
+            }
         }
         else{
-            Debug.Log("Congratulations");
+            source.PlayOneShot(finishigAudio);
         }
-
     }
-    public void ValidStep(){
 
+    public void VerifyLate(){
+        if(nextStep.repeatAudio != null){
+            if (!source.isPlaying){
+                source.PlayOneShot(nextStep.repeatAudio);
+            }
+        }
+        if(!Steps[Steps.Count - 1].status){
+            Invoke("VerifyLate", 15f);
+        }
+    }
+    IEnumerator WaitAndContinue(MotorManipSteps nextStep)
+    {
+        while (source.isPlaying)
+        {
+            yield return null; // Yielding each frame
+        }
+        Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
+        XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
+        Debug.Log("Condition is now met. Continue with the rest of the code.");
     }
     private void InitSteps(){
         Component XR_grab_Script;
         foreach(MotorManipSteps step in Steps){
-            XR_grab_Script = step.stepObject.GetComponent("XRGrabInteractable");
-            XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, false, null); 
+            if (step.stepObject != null){
+                XR_grab_Script = step.stepObject.GetComponent("XRGrabInteractable");
+                XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, false, null); 
+            }
         }
-        XR_grab_Script = Steps[0].stepObject.GetComponent("XRGrabInteractable");
-        XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null); 
         // source.PlayOneShot(Steps[0].stepAudio);
+        // if (currentStep.stepObject != null){
+        //     XR_grab_Script = Steps[0].stepObject.GetComponent("XRGrabInteractable");
+        //     XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null); 
+        // }
+        ValidStep(0);
     }
 
    
-
+   
     void Start()
     {
         InitSteps();
@@ -84,22 +109,22 @@ public class MotorManipManager : MonoBehaviour
         scriptL2 = socketL2.GetComponent<HandlePowerSocketCollision>();
         scriptL3 = socketL3.GetComponent<HandlePowerSocketCollision>();
         RotateMotor(Vector3.forward);
+        Invoke("VerifyLate", 15f);
     }
     void RotateMotor(Vector3 rotationDirection)
     {
-        Rotor.transform.Rotate(rotationDirection * 100f * Time.deltaTime);
+        Rotor.transform.Rotate(rotationDirection * 1000f * Time.deltaTime);
     }
     void Update()
     {
-        // RotateMotor(Vector3.forward);
-        // if(Steps[Steps.Count - 1].status){
-        if(true){
+        if(Steps[Steps.Count - 2].status){
             if (scriptL1.isConnected && scriptL2.isConnected && scriptL3.isConnected){
-
+                ValidStep(5);
                 direction = (!scriptL1.isSameTerminal || scriptL3.isSameTerminal) && (scriptL1.isSameTerminal || !scriptL2.isSameTerminal)  && (scriptL2.isSameTerminal || !scriptL3.isSameTerminal);
                 Debug.Log("Run " + direction);
                 RotateMotor((direction) ? Vector3.forward : Vector3.back);
             }
         }
+        
     }
 }
