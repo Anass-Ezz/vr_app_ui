@@ -33,6 +33,7 @@ public class MotorManipManager : MonoBehaviour
     private HandlePowerSocketCollision scriptL3;
 
     private bool direction;
+    private bool connectedFirst = false;
 
     private MotorManipSteps nextStep;
     [SerializeField] private AudioClip finishigAudio;
@@ -78,11 +79,10 @@ public class MotorManipManager : MonoBehaviour
     {
         while (source.isPlaying)
         {
-            yield return null; // Yielding each frame
+            yield return null; 
         }
         Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
         XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
-        Debug.Log("Condition is now met. Continue with the rest of the code.");
     }
     private void InitSteps(){
         Component XR_grab_Script;
@@ -92,11 +92,6 @@ public class MotorManipManager : MonoBehaviour
                 XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, false, null); 
             }
         }
-        // source.PlayOneShot(Steps[0].stepAudio);
-        // if (currentStep.stepObject != null){
-        //     XR_grab_Script = Steps[0].stepObject.GetComponent("XRGrabInteractable");
-        //     XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null); 
-        // }
         ValidStep(0);
     }
 
@@ -119,7 +114,10 @@ public class MotorManipManager : MonoBehaviour
     {
         if(Steps[Steps.Count - 2].status){
             if (scriptL1.isConnected && scriptL2.isConnected && scriptL3.isConnected){
-                ValidStep(5);
+                if (!connectedFirst){
+                    ValidStep(5);
+                    connectedFirst = true;
+                }
                 direction = (!scriptL1.isSameTerminal || scriptL3.isSameTerminal) && (scriptL1.isSameTerminal || !scriptL2.isSameTerminal)  && (scriptL2.isSameTerminal || !scriptL3.isSameTerminal);
                 Debug.Log("Run " + direction);
                 RotateMotor((direction) ? Vector3.forward : Vector3.back);
