@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Joints{
@@ -12,33 +13,22 @@ public class Joints{
 public class RotateRobot : MonoBehaviour
 {
     [SerializeField] private List<Joints> Joints = new List<Joints>();
-    // Start is called before the first frame update
-    public float value1 = 0.0f;
-    public float value2 = 0.0f;
-    public float value3 = 0.0f;
-    public float value4 = 0.0f;
-    public int joint = 0;
+    [SerializeField] private List<Slider> JointSliders = new List<Slider>();
+
     void Start()
     {
     }
 
-    // Update is called once per frame
+    public void ChangeRot(int id){
+        GameObject joint = Joints[id].joint;
+        Vector3 axis = Joints[id].axis;
+        joint.transform.localEulerAngles = new Vector3(JointSliders[id].value*axis.x, JointSliders[id].value*axis.y, JointSliders[id].value*axis.z);
+
+    }
+
+    public Vector3 values;
     void Update()
     {
-        GameObject currentJoint = Joints[joint].joint;
-        Vector3 jointAxis = Joints[joint].axis;
-        if (jointAxis.x == 1){
-            currentJoint.transform.rotation = Quaternion.Euler(value1, currentJoint.transform.rotation.eulerAngles.y, currentJoint.transform.rotation.eulerAngles.z);
-            // Quaternion newRotation = Quaternion.Euler(value, currentJoint.transform.rotation.eulerAngles.y, currentJoint.transform.rotation.eulerAngles.z);
-            // currentJoint.transform.rotation = newRotation;
-        }
-        else if (jointAxis.y == 1){
-            currentJoint.transform.rotation = Quaternion.Euler(currentJoint.transform.rotation.eulerAngles.x, value1, currentJoint.transform.rotation.eulerAngles.z);
-            // Quaternion newRotation = Quaternion.Euler(currentJoint.transform.rotation.eulerAngles.x, value, currentJoint.transform.rotation.eulerAngles.z);
-            // currentJoint.transform.rotation = newRotation;
-        }
-        //
-
-
+        
     }
 }
