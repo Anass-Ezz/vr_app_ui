@@ -3,7 +3,37 @@ guid: cb839b5999875df45ae7125ce1fd79c4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Board Mat
+    second: {fileID: 2100000, guid: 405c3ee6077f34a44adb23f167911ea3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 375499e1a790b7a4fab9eb52747ad914, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: socket blue
+    second: {fileID: 2100000, guid: 1194ba6b30ab4ee48bf24908f467d86e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: socket red
+    second: {fileID: 2100000, guid: 99950e87555485c4487c484fb03e677f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: socket yellow
+    second: {fileID: 2100000, guid: 76d791579194806409dec2c0b4602ed5, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: motor board
+    second: {fileID: 2800000, guid: b04687f21f865eb4ab0ac5c2904f988b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -84,6 +84,7 @@ public class MotorManipManager : MonoBehaviour
         Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
         XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
     }
+    
     private void InitSteps(){
         Component XR_grab_Script;
         foreach(MotorManipSteps step in Steps){
