@@ -22,11 +22,10 @@ public class RotateRobot : MonoBehaviour
     public void ChangeRot(int id){
         GameObject joint = Joints[id].joint;
         Vector3 axis = Joints[id].axis;
+        Debug.Log(JointSliders[0].value);
         joint.transform.localEulerAngles = new Vector3(JointSliders[id].value*axis.x, JointSliders[id].value*axis.y, JointSliders[id].value*axis.z);
-
     }
 
-    public Vector3 values;
     void Update()
     {
         
