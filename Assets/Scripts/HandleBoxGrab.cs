@@ -14,12 +14,20 @@ public class HandleBoxGrab : MonoBehaviour
     {
     }
     private void OnTriggerEnter(Collider other){
-        if (other.gameObject.name == "Box to pick")
+        if (other.gameObject.name == "Box to pick"){
+
             Collided = true;
+            Component OutlineScript = boxToPick.GetComponent("Outline");
+            OutlineScript.GetType().GetProperty("enabled").SetValue(OutlineScript, true, null); 
+        }
     }
     private void OnTriggerExit(Collider other){
-        if (other.gameObject.name == "Box to pick")
+        if (other.gameObject.name == "Box to pick"){
+
             Collided = false;
+            Component OutlineScript = boxToPick.GetComponent("Outline");
+            OutlineScript.GetType().GetProperty("enabled").SetValue(OutlineScript, false, null); 
+        }
     }
     public void PickBox(){
         if(Collided){

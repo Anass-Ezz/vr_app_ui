@@ -9,6 +9,8 @@ TagManager:
   - L1
   - L2
   - L3
+  - Box
+  - Robot
   layers:
   - Default
   - TransparentFX

@@ -83,6 +83,8 @@ public class MotorManipManager : MonoBehaviour
         }
         Component XR_grab_Script = nextStep.stepObject.GetComponent("XRGrabInteractable");
         XR_grab_Script.GetType().GetProperty("enabled").SetValue(XR_grab_Script, true, null);
+        Component OutlineScript = nextStep.stepObject.GetComponent("Outline");
+        OutlineScript.GetType().GetProperty("enabled").SetValue(OutlineScript, true, null);
     }
     
     private void InitSteps(){
